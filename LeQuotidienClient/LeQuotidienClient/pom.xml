@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lequotidien</groupId>
+    <artifactId>le-quotidien-client</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Le•Quotidien — Application Cliente</name>
+    <description>Client Java/Swing pour la gestion des utilisateurs via le service SOAP</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mainClass>com.lequotidien.App</mainClass>
+    </properties>
+
+    <!-- Aucune dépendance externe : utilise uniquement le JDK standard (Java SE 17+) -->
+    <dependencies/>
+
+    <build>
+        <plugins>
+            <!-- Compilation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- JAR exécutable avec Manifest -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${mainClass}</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Built-By>Le•Quotidien Team</Built-By>
+                        </manifestEntries>
+                    </archive>
+                    <finalName>le-quotidien-client</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
